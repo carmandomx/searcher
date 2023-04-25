@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import useFetchPokemon from "./logic/useFetchPokemon";
+import Pokemon from "./components/Pokemon";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { pokemon } = useFetchPokemon();
+
+  const list = pokemon.map((value) => (
+    <Pokemon name={value.name} url={value.url} key={value.name} />
+  ));
+
+  return <div className="App">{list}</div>;
 }
 
 export default App;
