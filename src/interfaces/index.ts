@@ -9,3 +9,19 @@ export interface IListResults<T> {
     previous: null
     results: T[]
 }
+
+interface IPokeType {
+    slot: number;
+    type: {
+        name: string;
+        url: string;
+    };
+}
+
+export interface IPokemonDetails {
+    order: number;
+    sprites: {
+        front_default: string;
+    }
+    types: IPokeType[]
+}
