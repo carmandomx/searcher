@@ -1,5 +1,6 @@
 import React from "react";
 import useFetchPokemonDetails from "../logic/useFetchPokemonDetails";
+import PokemonTypes from "./PokemonTypes";
 
 type Props = {
   name: string;
@@ -16,15 +17,23 @@ const Pokemon = ({ name, url }: Props) => {
         backgroundColor: "#ccc",
       }}
     >
-      <h5>{name}</h5>
+      <h5
+        style={{
+          marginBottom: 0,
+        }}
+      >
+        {name}
+      </h5>
       <div>
-        <h6>No. {order}</h6>
+        <PokemonTypes types={types} />
+        <h6
+          style={{
+            marginBottom: 0,
+          }}
+        >
+          No. {order}
+        </h6>
         <img alt={name} src={sprite} />
-        <ul>
-          {types.map((value) => (
-            <li key={value}>{value}</li>
-          ))}
-        </ul>
       </div>
     </div>
   );

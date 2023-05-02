@@ -1,7 +1,4 @@
-export interface IInfoPokemon {
-    name: string;
-    url: string;
-}
+
 
 export interface IListResults<T> {
     count: number;
@@ -12,10 +9,7 @@ export interface IListResults<T> {
 
 interface IPokeType {
     slot: number;
-    type: {
-        name: string;
-        url: string;
-    };
+    type: IInfoPokemon;
 }
 
 export interface IPokemonDetails {
@@ -24,4 +18,21 @@ export interface IPokemonDetails {
         front_default: string;
     }
     types: IPokeType[]
+}
+
+export interface IIdAndName {
+    id: number;
+    name: string;
+}
+
+export interface ITypeDetails {
+    pokemon: {
+        pokemon: IInfoPokemon,
+        slot: number
+    }[]
+}
+
+export interface IInfoPokemon {
+    name: string;
+    url: string;
 }
